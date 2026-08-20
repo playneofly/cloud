@@ -1,0 +1,22 @@
+۱) تو گیت‌هاب ریپوی kabootar همه فایل‌های قبلی را پاک کن.
+   مخصوصاً wrangler.toml و package.json را حتماً حذف کن.
+   اگر wrangler.toml بماند، بیلد دوباره در ۰ ثانیه می‌ترکد.
+
+۲) همین فایل‌های داخل این پوشه را مستقیم در ریشه ریپو آپلود کن:
+   index.html
+   assets/
+   functions/_middleware.js
+   _redirects
+   _headers
+   ok.txt
+
+   نباید داخل پوشه اضافه باشند. صفحه اول ریپو باید خودِ index.html را نشان بدهد.
+
+۳) کلادفلر Pages → Settings → Builds:
+   Build command: خالی
+   Build output directory: /
+   Root directory: خالی
+
+۴) Settings → Bindings → D1:
+   Variable name = DB
+   Database = t

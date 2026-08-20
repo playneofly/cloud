@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#050506" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050506'/%3E%3Crect x='1.5' y='1.5' width='61' height='61' rx='15' fill='none' stroke='%23e0b84d' stroke-opacity='.35' stroke-width='2'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='600' fill='%23e0b84d' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
+<title>ورود | حساب T</title>
+<style>
+:root{--bg0:#050506;--line:rgba(224,184,77,.16);--line2:rgba(255,255,255,.06);--gold:#e0b84d;--cream:#f3ebd8;--mute:#8d8778;--mute2:#5c574c;--danger:#d36a6a;--serif:Georgia,"Times New Roman",serif;--sans:Tahoma,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;font-family:var(--sans);color:var(--cream);background:radial-gradient(1200px 700px at 80% -10%,rgba(224,184,77,.08),transparent 55%),radial-gradient(800px 500px at -10% 110%,rgba(90,50,160,.12),transparent 50%),var(--bg0)}
+.card{width:min(400px,100%);background:linear-gradient(180deg,rgba(20,20,24,.88),rgba(10,10,12,.94));border:1px solid var(--line);border-radius:24px;padding:34px 30px;box-shadow:0 30px 80px rgba(0,0,0,.55);position:relative;overflow:hidden}
+.card .water{position:absolute;top:-60px;left:-20px;font-family:var(--serif);font-size:220px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(224,184,77,.07);pointer-events:none}
+.brand{display:flex;align-items:center;gap:10px;color:var(--gold);position:relative}
+.brand svg{width:22px;height:22px}
+.brand p{margin:0;font-size:15px;font-weight:700;color:var(--cream)}
+h1{font-family:var(--serif);font-size:30px;font-weight:600;margin:22px 0 4px;position:relative}
+.sub{color:var(--mute);font-size:12px;margin:0 0 22px;position:relative}
+.field{margin-bottom:13px;position:relative}
+.field label{display:block;font-size:12px;color:var(--mute);margin-bottom:6px}
+.field input{width:100%;background:#ffffff08;border:1px solid var(--line2);border-radius:12px;padding:11px 13px;outline:none;font-size:14px;color:var(--cream);font-family:inherit}
+.field input:focus{border-color:var(--line)}
+.field input::placeholder{color:var(--mute2)}
+.rowline{display:flex;justify-content:space-between;align-items:center;margin:2px 0 16px;position:relative}
+.rowline a{font-size:12px;color:var(--mute);text-decoration:none}
+.rowline a:hover{color:var(--gold)}
+.btn{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px 14px;background:linear-gradient(160deg,#e8c45a,#9a7420);color:#1a1406;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;position:relative}
+.btn:hover{filter:brightness(1.06)}
+.btn:disabled{opacity:.5}
+.divider{display:flex;align-items:center;gap:10px;color:var(--mute2);font-size:11px;margin:20px 0 14px;position:relative}
+.divider:before,.divider:after{content:"";flex:1;height:1px;background:var(--line2)}
+.socials{display:flex;gap:8px;position:relative}
+.socials button{flex:1;background:#ffffff08;border:1px solid var(--line2);border-radius:12px;padding:10px;color:var(--cream);font-size:12.5px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:7px}
+.socials button:hover{border-color:var(--line);background:#e0b84d14}
+.socials svg{width:15px;height:15px;color:var(--mute)}
+.err{color:var(--danger);font-size:12px;min-height:16px;margin:8px 0 0;position:relative}
+.toggle{margin:20px 0 0;text-align:center;font-size:12px;color:var(--mute);position:relative}
+.toggle a{color:var(--gold);text-decoration:none;font-weight:700;cursor:pointer}
+.hidden{display:none}
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="water">T</span>
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+      </svg>
+      <p>حساب T</p>
+    </div>
+
+    <h1 id="titleTxt">ورود</h1>
+    <p class="sub" id="subTxt">به حساب خود وارد شوید</p>
+
+    <form id="authForm">
+      <div class="field hidden" id="nameField">
+        <label for="name">نام نمایشی</label>
+        <input id="name" type="text" placeholder="مثلاً: سارا محمدی" />
+      </div>
+      <div class="field">
+        <label for="username">نام کاربری</label>
+        <input id="username" type="text" dir="ltr" autocomplete="username" placeholder="username" />
+      </div>
+      <div class="field">
+        <label for="password">رمز عبور</label>
+        <input id="password" type="password" dir="ltr" autocomplete="current-password" placeholder="••••••••" />
+      </div>
+      <div class="rowline" id="forgotRow">
+        <a href="#" onclick="return false">رمز را فراموش کرده‌اید؟</a>
+      </div>
+      <button class="btn" id="submitBtn" type="submit">ورود</button>
+      <p class="err" id="err"></p>
+    </form>
+
+    <div class="divider">یا ادامه با</div>
+    <div class="socials">
+      <button type="button" onclick="soon()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 3a15 15 0 010 18M12 3a15 15 0 000 18M3 12h18"/></svg>
+        گوگل
+      </button>
+      <button type="button" onclick="soon()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 00-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+        گیت‌هاب
+      </button>
+    </div>
+
+    <p class="toggle" id="toggleRow">حساب ندارید؟ <a id="toggleLink">ثبت‌نام</a></p>
+  </div>
+
+<script>
+var mode = "login";
+var form = document.getElementById("authForm");
+var err = document.getElementById("err");
+var toggleRow = document.getElementById("toggleRow");
+
+function soon(){ err.textContent = "ورود با شبکه‌های اجتماعی به‌زودی فعال می‌شود"; }
+
+function toggleMode() {
+  mode = mode === "login" ? "signup" : "login";
+  err.textContent = "";
+  document.getElementById("nameField").classList.toggle("hidden", mode === "login");
+  document.getElementById("forgotRow").classList.toggle("hidden", mode !== "login");
+  document.getElementById("titleTxt").textContent = mode === "login" ? "ورود" : "ثبت‌نام";
+  document.getElementById("subTxt").textContent = mode === "login" ? "به حساب خود وارد شوید" : "حساب T بسازید";
+  document.getElementById("submitBtn").textContent = mode === "login" ? "ورود" : "ساخت حساب";
+  document.getElementById("password").setAttribute("autocomplete", mode === "login" ? "current-password" : "new-password");
+  toggleRow.innerHTML = mode === "login"
+    ? 'حساب ندارید؟ <a id="toggleLink">ثبت‌نام</a>'
+    : 'حساب دارید؟ <a id="toggleLink">ورود</a>';
+}
+
+toggleRow.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "toggleLink") toggleMode();
+});
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  err.textContent = "";
+  var btn = document.getElementById("submitBtn");
+  var username = document.getElementById("username").value.trim();
+  var password = document.getElementById("password").value;
+  var name = document.getElementById("name").value.trim();
+  if (!username || !password) { err.textContent = "نام کاربری و رمز عبور را وارد کنید"; return; }
+  btn.disabled = true;
+  try {
+    var res = await fetch(mode === "login" ? "/api/login" : "/api/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(mode === "login" ? { username: username, password: password } : { username: username, password: password, name: name || username, avatar: "gold" })
+    });
+    var data = await res.json().catch(function(){ return {}; });
+    if (!res.ok) throw new Error(data.error || "خطا رخ داد");
+    location.href = "/";
+  } catch (ex) {
+    err.textContent = ex.message || "ارتباط با سرور برقرار نشد";
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
